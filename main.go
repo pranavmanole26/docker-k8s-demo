@@ -22,7 +22,7 @@ func main() {
 		} else {
 			log.Println("Ping message from redis server.", pong)
 			res.WriteHeader(http.StatusOK)
-			res.Write([]byte("Hi " + pong))
+			res.Write([]byte("Hi there " + pong))
 		}
 	})
 

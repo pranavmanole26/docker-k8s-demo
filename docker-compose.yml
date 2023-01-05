@@ -3,13 +3,19 @@ services:
   redis-server:
     image: "redis"
   golang-app:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - "8081:8080"
     volumes:
       - .:/app
   tests:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     volumes:
       - .:/app
-    command: ["go", "test", "."]
+    depends_on:
+      - redis-server
+    command: ["go", "test", "-v", "./..."]

@@ -1,12 +1,12 @@
-FROM golang:alpine
+FROM golang:latest-alpine as BUILD
 
 WORKDIR /app
 
-COPY ./go.mod ./go.sum ./
+COPY go.mod go.sum ./
 RUN go mod download
 
-COPY . .
-RUN go build -o /demo
+COPY . . 
+RUN go build -o demo
 
 EXPOSE 8080
 

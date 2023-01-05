@@ -6,6 +6,10 @@ import (
 	"github.com/go-redis/redis"
 )
 
+type IRedisConfig interface {
+	GetPing() (string, error)
+}
+
 type RedisConfig struct {
 	*redis.Client
 }

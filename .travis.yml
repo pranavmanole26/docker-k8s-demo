@@ -1,4 +1,6 @@
 sudo: required
+language: generic
+
 services:
   - docker
 
@@ -10,11 +12,11 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "docker-redis-go"
-  env: "Dockerredisgo-env"
-  bucket_name: "elasticbeanstalk-us-east-1-417789473161"
-  bucket_path: "docker-redis-go"
+  region: 'us-east-1' 
+  app: 'docker-redis-go'
+  env: 'Dockerredisgo-env'
+  bucket_name: 'elasticbeanstalk-us-east-1-417789473161'
+  bucket_path: 'docker-redis-go'
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY

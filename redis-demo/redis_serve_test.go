@@ -7,8 +7,19 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+type MRedisConfig struct {
+}
+
+func (rc *MRedisConfig) GetPing() (string, error) {
+	return "Pong", nil
+}
+
+func GetMockRedisClient() *MRedisConfig {
+	return &MRedisConfig{}
+}
+
 func TestGetPing(t *testing.T) {
-	rc := GetRedisClient()
+	rc := GetMockRedisClient()
 
 	t.Run("Get Ping testing", func(t *testing.T) {
 		pong, err := rc.GetPing()

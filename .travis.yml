@@ -14,7 +14,7 @@ deploy:
   provider: elasticbeanstalk
   region: 'us-east-1' 
   app: 'docker-redis-go'
-  env: 'Dockerredisgo-env'
+  env: 'Dockerredisgo-env-1'
   bucket_name: 'elasticbeanstalk-us-east-1-417789473161'
   bucket_path: 'docker-redis-go'
   on:
